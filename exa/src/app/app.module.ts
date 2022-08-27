@@ -25,7 +25,7 @@ import { LoaderApiService } from './loader-api.service';
       useClass: TokenInterceptor,
       multi: true
     },
-    LoaderApiService,
+    //LoaderApiService,
   ],
   bootstrap: [AppComponent]
 })

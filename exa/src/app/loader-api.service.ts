@@ -56,6 +56,7 @@ export function LoaderEnabled(){
     
       console.log('this', this);
       console.log('arguments', arguments);
+      
 
       return original.apply(this, arguments)
         .pipe(
@@ -77,33 +78,3 @@ export function LoaderEnabled(){
   };
 }
 
-
-export function TokenEnabled(){
-
-  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    const original = descriptor.value;
-    
-    // descriptor.value = function () {
-
-    //   LoaderApiService.showLoader();
-    //   console.log('**InjectedCode-begin--LOADERON', propertyKey);
-
-    //   return original.apply(this, arguments)
-    //     .pipe(
-    //       map((res) => {
-    //         console.log('**InjectedCode-map--LOADEROFF', propertyKey);
-    //         console.log('res deco', res);
-    //         LoaderApiService.hideLoader();
-    //         return res;
-    //       }),
-    //       catchError((err) => {
-    //         console.log('**InjectedCode-err--LOADEROFF', propertyKey);
-    //         LoaderApiService.hideLoader();
-    //         throw err;
-    //       })
-    //     );
-    // };
-    // return descriptor;
-
-  };
-}

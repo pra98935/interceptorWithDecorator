@@ -40,23 +40,9 @@ export function LoaderEnabled(){
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
     const original = descriptor.value;
 
-    
-
-    console.log('target', target);
-    console.log('propertyKey', propertyKey);
-    console.log('descriptor', descriptor);
-
-    console.log('original', original);
-
     descriptor.value = function () {
 
       LoaderApiService.showLoader();
-      console.log('**InjectedCode-begin--LOADERON', propertyKey);
-
-    
-      console.log('this', this);
-      console.log('arguments', arguments);
-      
 
       return original.apply(this, arguments)
         .pipe(
